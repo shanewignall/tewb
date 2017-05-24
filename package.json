@@ -1,13 +1,11 @@
 {
-  "name": "electron-frameless",
-  "productName": "Electron Frameless",
+  "name": "Tewb",
   "version": "0.0.0",
-  "description": "A seed for cross-platform, frameless-windowed applications",
+  "description": "A multi-platform floating Youtube video player",
   "license": "MIT",
-  "repository": "https://github.com/shanewignall/electron-frameless",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Wignall, Shane M",
+    "email": "shane.wignall@gmail.com",
     "url": "twitter.com/deadsl0th"
   },
   "scripts": {

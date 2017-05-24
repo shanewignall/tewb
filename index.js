@@ -5,21 +5,25 @@ const app = electron.app;
 
 require('electron-debug')();
 
-let mainWindow;
+let win;
 
 function onClosed() {
-	mainWindow = null;
+	win = null;
 }
 
 function createMainWindow() {
 	var frame = ((process.platform !== 'darwin') ? false : true);
-	
-	const win = new electron.BrowserWindow({
-		width: 600,
-		height: 400,
-		frame: frame,
-		titleBarStyle: 'hidden-inset'
+
+	win = new electron.BrowserWindow({
+		width: 450,
+		height: 600,
+		minWidth: 350,
+		minHeight: 300,
+		//frame: frame,
+		title: "Tewb"
 	});
+
+	win.setMenu(null);
 
 	win.loadURL(`file://${__dirname}/index.html`);
 	win.on('closed', onClosed);
@@ -34,11 +38,11 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-	if (!mainWindow) {
-		mainWindow = createMainWindow();
+	if (!win) {
+		win = createMainWindow();
 	}
 });
 
 app.on('ready', () => {
-	mainWindow = createMainWindow();
+	win = createMainWindow();
 });
