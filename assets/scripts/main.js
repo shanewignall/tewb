@@ -39,3 +39,7 @@ function appendResult(video) {
     '</div>'
   )
 }
+
+$(window).on('resize', function() {
+  $('#results').css('height', window.innerHeight - 60);
+});
