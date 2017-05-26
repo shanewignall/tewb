@@ -18,7 +18,8 @@ function createMainWindow() {
 		width: 450,
 		height: 600,
 		minWidth: 350,
-		minHeight: 300,
+		minHeight: 100,
+		alwaysOnTop: true,
 		//frame: frame,
 		title: "Tewb"
 	});
