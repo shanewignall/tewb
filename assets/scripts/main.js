@@ -6,6 +6,8 @@ $('#search').keyup(function(e) {
   }
 });
 
+var nextPageToken;
+
 function search() {
   $('#results').empty();
   var q = $('#search').val();
@@ -15,6 +17,7 @@ function search() {
     type: 'video',
     key: API_KEY
   }, function(res) {
+    nextPageToken = res.nextPageToken;
     res.items.forEach(function(video) {
       appendResult(video);
     });
@@ -30,6 +33,23 @@ function play(id) {
 function back() {
   $('.video-wrapper').remove();
   window.resizeTo(450, 600);
+}
+
+function nextPage(token) {
+
+  var q = $('#search').val();
+  $.get('https://www.googleapis.com/youtube/v3/search?maxResults=20', {
+    part: 'snippet, id',
+    q: q,
+    type: 'video',
+    key: API_KEY,
+    pageToken: token
+  }, function(res) {
+    nextPageToken = res.nextPageToken;
+    res.items.forEach(function(video) {
+      appendResult(video);
+    });
+  });
 }
 
 function appendResult(video) {
@@ -51,6 +71,12 @@ function appendResult(video) {
   );
 }
 
+$('#results').scroll(function() {
+  if($('#results').scrollTop() + $('#results').innerHeight() >= $('#results')[0].scrollHeight) {
+    nextPage(nextPageToken);
+  }
+});
+
 $(window).on('resize', function() {
   $('#results').css('height', window.innerHeight - 60);
   if($('iframe').length) {
@@ -64,12 +90,10 @@ $(window).on('resize', function() {
 
 $(window).on('mouseenter', function() {
   $('.back').stop().fadeIn('fast');
-  console.log('visible');
 });
 
 $(window).on('mouseleave', function() {
   $('.back').stop().fadeOut('fast');
-  console.log('hidden');
 });
 
 $(function() {
