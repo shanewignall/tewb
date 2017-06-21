@@ -12,16 +12,14 @@ function onClosed() {
 }
 
 function createMainWindow() {
-	var frame = ((process.platform !== 'darwin') ? false : true);
-
 	win = new electron.BrowserWindow({
 		width: 450,
 		height: 600,
 		minWidth: 350,
 		minHeight: 100,
 		alwaysOnTop: true,
-		//frame: frame,
-		title: "Tewb"
+		title: "Tewb",
+		icon: 'favicon.png'
 	});
 
 	win.setMenu(null);
