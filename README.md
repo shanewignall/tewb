@@ -16,7 +16,7 @@ $ npm start
 ```
 
 ### Package
-set the "--platform" flag in the build setup the the desired platform(s), then:
+set the "--platform" flag in the build setup the the desired platform(s) (win32, linux, darwin), then:
 
 ```
 $ npm run build
