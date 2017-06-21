@@ -16,6 +16,7 @@ $ npm start
 ```
 
 ### Package
+set the "--platform" flag in the build setup the the desired platform(s), then:
 
 ```
 $ npm run build
