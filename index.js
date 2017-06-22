@@ -18,8 +18,8 @@ function createMainWindow() {
 		minWidth: 350,
 		minHeight: 100,
 		alwaysOnTop: true,
-		title: "Tewb",
-		icon: 'favicon.png'
+		title: 'Tewb',
+		icon: './favicon.png'
 	});
 
 	win.setMenu(null);

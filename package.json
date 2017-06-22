@@ -11,7 +11,7 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=./dist --asar --overwrite --platform=darwin"
+    "build": "electron-packager . --out=./dist --asar --overwrite --platform=win32"
   },
   "files": [
     "index.js",
