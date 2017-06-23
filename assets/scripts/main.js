@@ -1,5 +1,6 @@
 const $ = require('./bower_components/jquery/dist/jquery.min.js');
 const API_KEY = 'AIzaSyAlE7vLt5dfjVSuRzfZGkp-Yud-sTf-kPI';
+
 $('#search').keyup(function(e) {
   if (e.keyCode == 13) {
     search();

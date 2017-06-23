@@ -11,7 +11,8 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=./dist --asar --overwrite --platform=win32 --icon=./favicon.ico"
+    "build": "electron-packager . --out=./dist --asar --overwrite --platform=win32 --icon=./favicon.ico",
+    "release": "node ./createInstaller.js"
   },
   "files": [
     "index.js",
@@ -26,12 +27,14 @@
   ],
   "dependencies": {
     "electron-debug": "^1.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-titlebar": "0.0.3"
   },
   "devDependencies": {
     "devtron": "^1.1.0",
-    "electron-packager": "^8.0.0",
     "electron": "^1.3.3",
+    "electron-packager": "^8.0.0",
+    "electron-winstaller": "^2.6.3",
     "xo": "^0.16.0"
   },
   "xo": {
