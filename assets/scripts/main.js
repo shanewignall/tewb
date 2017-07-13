@@ -20,6 +20,23 @@ function search() {
   }, function(res) {
     nextPageToken = res.nextPageToken;
     res.items.forEach(function(video) {
+      console.log(video);
+      appendResult(video);
+    });
+  });
+}
+
+function channelSearch(channel) {
+  console.log(channel);
+  $('#results').empty();
+  $.get('https://www.googleapis.com/youtube/v3/search?maxResults=20', {
+    part: 'snippet, id',
+    type: 'video',
+    channelId: channel,
+    key: API_KEY
+  }, function(res) {
+    nextPageToken = res.nextPageToken;
+    res.items.forEach(function(video) {
       appendResult(video);
     });
   });
@@ -59,6 +76,7 @@ function appendResult(video) {
   var thumb = video.snippet.thumbnails.high.url;
   var channel = video.snippet.channelTitle;
   var date = video.snippet.publishedAt;
+  var channelId = video.snippet.channelId;
 
   $('#results').append(
     '<div class="video">' +
@@ -66,7 +84,7 @@ function appendResult(video) {
        '<img class="thumb" src="' + thumb + '">' +
        '<span class="title"><h6>' + title + '<h6></span>' +
       '</a>' +
-      '<span><p>' + channel + '<p></span>' +
+      '<span><a href="#" onclick="channelSearch(' + '`' + channelId + '`' + ')">' + channel + '</a></span>' +
       '<span><p>' + new Date(date).toDateString() + '<p></span>' +
     '</div>'
   );
