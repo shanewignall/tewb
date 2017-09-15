@@ -1,5 +1,7 @@
 const $ = require('./bower_components/jquery/dist/jquery.min.js');
+const remote = require('electron').remote;
 const API_KEY = 'AIzaSyAlE7vLt5dfjVSuRzfZGkp-Yud-sTf-kPI';
+
 
 $('#search').keyup(function(e) {
   if (e.keyCode == 13) {
@@ -20,7 +22,6 @@ function search() {
   }, function(res) {
     nextPageToken = res.nextPageToken;
     res.items.forEach(function(video) {
-      console.log(video);
       appendResult(video);
     });
   });
@@ -29,7 +30,7 @@ function search() {
 function channelSearch(channel) {
   console.log(channel);
   $('#results').empty();
-  $.get('https://www.googleapis.com/youtube/v3/search?maxResults=20', {
+  $.get('https://www.googleapis.com/youtube/v3/search?maxResults=20&order=date', {
     part: 'snippet, id',
     type: 'video',
     channelId: channel,
@@ -43,7 +44,9 @@ function channelSearch(channel) {
 }
 
 function play(id) {
+  var url = 'https://www.youtube.com/watch?v=' + id;
   $('.video-wrapper').remove();
+
   $('body').prepend('<div class="video-wrapper"><iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/' + id +'" frameborder="0" allowfullscreen></iframe><button class="back" onclick="back()">Back</button></div>');
   window.resizeTo(560 + window.outerWidth - window.innerWidth, 315 + window.outerHeight - window.innerHeight);
 }
@@ -69,6 +72,7 @@ function nextPage(token) {
     });
   });
 }
+
 
 function appendResult(video) {
   var id = video.id.videoId;

@@ -1,5 +1,6 @@
 'use strict';
 const electron = require('electron');
+const fs = require('fs');
 
 const app = electron.app;
 
