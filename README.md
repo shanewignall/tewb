@@ -26,4 +26,4 @@ Builds the app for macOS, Linux, and Windows, using [electron-packager](https://
 
 ## License
 
-MIT © [](https://twitter.com/deadsl0th)
+MIT © [](https://twitter.com/shanemwignall)
