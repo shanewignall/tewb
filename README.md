@@ -2,6 +2,7 @@
 
 > A cross-platform, floating application for viewing Youtube videos
 
+![Screenshot of Tewb](https://github.com/shanewignall/tewb/blob/master/tewb.jpg)
 
 ## Setup
 
