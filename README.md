@@ -25,7 +25,7 @@ $ npm run build -- --platform=win32
 
 Builds the app for macOS, Linux, and Windows, using [electron-packager](https://github.com/electron-userland/electron-packager).
 
-## Release
+### Release
 create an installer from the build by running:
 ```
 $ npm run release
