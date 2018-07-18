@@ -1,6 +1,6 @@
 # Youtube Float
 
-> A cross-platform, floating application for viewing Youtube videos
+> A cross-platform application for viewing Youtube videos on the desktop
 
 ![Screenshot of Tewb](https://github.com/shanewignall/tewb/blob/master/tewb.jpg)
 
