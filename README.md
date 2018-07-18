@@ -16,14 +16,21 @@ $ npm install
 $ npm start
 ```
 
-### Package
-set the "--platform" flag in the build setup to the desired platform(s) (win32, linux, darwin), then:
+### Build
+run the "build" script with the "--platform" flag for the desired platform (win32, linux, darwin). For example:
 
 ```
-$ npm run build
+$ npm run build -- --platform=win32
 ```
 
 Builds the app for macOS, Linux, and Windows, using [electron-packager](https://github.com/electron-userland/electron-packager).
+
+## Release
+create an installer from the build by running:
+```
+$ npm run release
+```
+After this, you will have an installer under `/dist/installers/`
 
 ## License
 
