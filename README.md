@@ -31,6 +31,9 @@ You will then have an installer under `/dist/installers/`
 
 Builds the app for macOS, Linux, and Windows, using [electron-packager](https://github.com/electron-userland/electron-packager).
 
+## Known Issues
+* Certain videos (primarily copyrighted content such as music videos) will display "This video is unavailable"
+
 ## License
 
 MIT © [Shane Wignall](https://twitter.com/shanemwignall)
